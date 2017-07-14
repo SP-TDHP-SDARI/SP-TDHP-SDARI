@@ -295,7 +295,7 @@ body
 {
     display:inline-block;
     position:relative;
-    top:-290px;
+    top:-180px;
     left:530px;
     opacity:0;
     background-image:url("images/20170710/heart_pink.png"); 
@@ -320,13 +320,13 @@ body
 	word-spacing: normal;
 	word-wrap: break-word;
 	word-break: break-all;
-	width: 300px;
+	width: 280px;
 	/* background-color: lightgoldenrodyellow; */
-	margin: 250px 150px 100px 60px;
-	margin: 90px 400px 100px 60px;
+	margin: 250px 150px 100px 50px;
+	margin: 60px 400px 100px 50px;
 	margin-top/*\**/: 90px\9;
 	margin-left/*\**/: 60px\9;
-	_margin: 80px 150px 100px 60px;
+	_margin: 60px 150px 100px 50px;
 	padding: 0px;
 	text-shadow: 3px 3px 2px lightgrey;
 	/*
@@ -348,7 +348,7 @@ body
 @media screen and (min-width:0\0) 
 {
     #mesg2Span{
-	    margin: 90px 400px 100px 60px;
+	    margin: 60px 400px 100px 50px;
     }
 }
 
@@ -744,7 +744,7 @@ body
                                                 if (!mesgAryI[dataAryI.topic]) {
                                                     mesgAryI[dataAryI.topic] = [];
                                                 } // else{}
-                                                mesgAryI[dataAryI.topic].push('##' + dataAryI.topic + '##' + (dataAryIContentLength <= 50 ? dataAryI.content: dataAryI.content.substring(0, 100)+"...") + '————' + dataAryI.nick_name);
+                                                mesgAryI[dataAryI.topic].push('##' + dataAryI.topic + '##' + (dataAryIContentLength <= 50 ? dataAryI.content: dataAryI.content.substring(0, 100)+"...") + ' —— ' + dataAryI.nick_name);
                                             } catch (ex) {
                                             }
                                         } // for
@@ -764,7 +764,7 @@ body
         mesg2Ary = mesgObj['不忘初心跟党走'];
     })();
 
-    var lastIndexD = 0;
+    var lastIndexD = -1;
     if (mesg1Ary != null) {
         function wzdFunc(dom, ary) {
             if (ary != null && ary.length > 0) {
@@ -772,10 +772,11 @@ body
                 var i = parseInt(Math.random() * ary.length);
                 if (dom.innerHTML == "") {
                     dom.innerHTML = ary[i];
+                    lastIndexD = i;
                 } else {
                     // console.log(dom.innerHTML);
                 }
-                if (i == lastIndexD) {// 避重
+                if (i === lastIndexD) {// 避重
                     if (i == Math.max(i, ary.length - 1)) {
                         i = 0;
                     } else {
@@ -803,15 +804,16 @@ body
                 });
             }
         }
-        var lastIndexP = 0;
+        var lastIndexP = -1;
         function wzpFunc(dom, ary) {
             if (ary != null && ary.length > 0) {
                 // dom = document.getElementById("mesg1Span");
                 var i = parseInt(Math.random() * ary.length);
                 if (dom.innerHTML == "") {
                     dom.innerHTML = ary[i];
+                    lastIndexP = i;
                 }
-                if (i == lastIndexP) {// 避重
+                if (i === lastIndexP) {// 避重
                     if (i == Math.max(i, ary.length - 1)) {
                         i = 0;
                     } else {
@@ -830,8 +832,14 @@ body
                     left: '540px'
                 }, 7000, function () {
                     // dom.innerHTML = ary[i];
-                }).delay(showLastTime).queue(function () {
+                }).delay(showLastTime).animate({
+                    opacity: 0.1,
+                    top: '-900px',
+                    left: '540px'
+                }, 7000, function () {
+                    // dom.innerHTML = ary[i];
                     $(dom).delay(3000).html(ary[i]).delay(3000).parent().css(domPcss);
+                }).queue(function () {
                     updateTopic2()
                     $(this).dequeue();
                 });
@@ -842,19 +850,20 @@ body
         }
 
         function updateTopic2() {
+            console.log('updateTopic2');
             wzpFunc(document.getElementById("mesg2Span"), mesg2Ary);
         }
-        (function(){
-            if (window._intervalTime4Topic1 != null) {
-                window.clearInterval(window._intervalTime4Topic1);
-            } // else{}
-            updateTopic1()
+        (function () {
+            //            if (window._intervalTime4Topic1 != null) {
+            //                window.clearInterval(window._intervalTime4Topic1);
+            //            } // else{}
+            updateTopic1();
             // window._intervalTime4Topic1 = window.setInterval(updateTopic1, 11000)
 
-            if (window._intervalTime4Topic2 != null) {
-                window.clearInterval(window._intervalTime4Topic2);
-            } // else{}
-            updateTopic2()
+            //            if (window._intervalTime4Topic2 != null) {
+            //                window.clearInterval(window._intervalTime4Topic2);
+            //            } // else{}
+            updateTopic2();
             // window._intervalTime4Topic2 = window.setInterval(updateTopic2, 7000)
         })()
 

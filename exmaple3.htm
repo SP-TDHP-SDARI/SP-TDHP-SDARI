@@ -722,7 +722,7 @@ body
                     function preInitMesgAry() {
                         var mesgAryI = {};
                         if (jQuery != null) {
-                            console.log('0');
+                            // console.log('0');
                             $.ajax({
                                 url: 'js/json.json',
                                 method: 'GET',
@@ -759,7 +759,7 @@ body
     
     (function () {// init ary
         mesgObj = preInitMesgAry();
-        console.log(mesgObj);
+        //console.log(mesgObj);
         mesg1Ary = mesgObj['聚力青春谱新篇'];
         mesg2Ary = mesgObj['不忘初心跟党走'];
     })();

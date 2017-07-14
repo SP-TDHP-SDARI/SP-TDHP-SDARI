@@ -609,7 +609,7 @@ body
 		<td rowspan="4" class="bg02">
 			<img src="images/20170710/bg02.png" alt="" width="577" height="171"></td>
 		<td>
-			<a href="http://www.schdri.com:1234/gourl.html?/index.php?option=com_fabrik&amp;view=form&amp;fabrik=2&amp;random=0&amp;Itemid=87"><img src="images/20170710/3c_footer_03.png" alt="" width="163" height="47" border="0"></a></td>
+			<a href="http://oa.schdri.com.cn/MvcConfig/UI/Form/PageView?TmplCode=LiuYanShangQiang&&_winid=w4725&_t=614414"><img src="images/20170710/3c_footer_03.png" alt="" width="163" height="47" border="0"></a></td>
 		<td class="bg03">
 			<img src="images/20170710/bg03.png" alt="" width="20" height="47"></td>
 		<td>
@@ -644,6 +644,227 @@ body
 </div>
 
 <script type="text/javascript">
-    function preInitMesgAry() { var mesgAryI = {}; return null != jQuery && (console.log("0"), $.ajax({ url: "js/json.json", method: "GET", async: !1, success: function () { }, complete: function (data, status) { mesgAry = eval(data.responseText || mesgAry); try { for (var dataAry = mesgAry, dataAryI, dataAryIContentLength = 0, i = 0; i < dataAry.length; i++) try { dataAryI = dataAry[i], dataAryIContentLength = dataAryI.content.length, mesgAryI[dataAryI.topic] || (mesgAryI[dataAryI.topic] = []), mesgAryI[dataAryI.topic].push("##" + dataAryI.topic + "##" + (dataAryIContentLength > 50 ? dataAryI.content.substring(0, 100) + "..." : dataAryI.content) + "————" + dataAryI.nick_name) } catch (ex) { } } catch (ex) { } } })), mesgAryI } function wzdFunc(e, t) { if (null != t && t.length > 0) { var n = parseInt(Math.random() * t.length); "" == e.innerHTML && (e.innerHTML = t[n]), n == lastIndexD && (n == Math.max(n, t.length - 1) ? n = 0 : n++), lastIndexD = n; var a = $(e).parent(), i = a.css(["opacity", "top", "left", "width", "height"]), o = (a.css("opacity"), a.css("top"), a.css("left"), Math.min(25e3, Math.max(3e3, 130 * $(e).html().length))); a.animate({ opacity: .1, top: "1000px", left: "300px" }, 9e3, "linear", function () { e.innerHTML = t[n], a.css(i) }).delay(o).queue(function () { updateTopic1(), $(this).dequeue() }) } } function wzpFunc(e, t) { if (null != t && t.length > 0) { var n = parseInt(Math.random() * t.length); "" == e.innerHTML && (e.innerHTML = t[n]), n == lastIndexP && (n == Math.max(n, t.length - 1) ? n = 0 : n++), lastIndexP = n; var a = $(e).parent(), i = a.css(["opacity", "top", "left"]), o = Math.min(25e3, Math.max(3e3, 130 * $(e).html().length)); $(e).parent().animate({ opacity: 1, top: "-500px", left: "540px" }, 7e3, function () { }).delay(o).queue(function () { $(e).delay(3e3).html(t[n]).delay(3e3).parent().css(i), updateTopic2(), $(this).dequeue() }) } } function updateTopic1() { wzdFunc(document.getElementById("mesg1Span"), mesg1Ary) } function updateTopic2() { wzpFunc(document.getElementById("mesg2Span"), mesg2Ary) } function marquee1_up() { document.getElementById("marquee1").direction = "up" } function marquee1_down() { document.getElementById("marquee1").direction = "down" } var mesgAry = [{ topic: "A", content: "始于一甲子，守候一甲子，再期盼一甲子，祝设计院明天更美好", nick_name: "小甲", dept_name: "A", update_time: "2016-08-01" }, { topic: "B", content: "怀着感恩的心情，迎接院60周年庆，明天更美好", nick_name: "陈单", dept_name: "", update_time: "" }, { topic: "A", content: "铁肩担重义，六十载岁月今番为贺；妙手绘华章，三万里蜀道从此不难。  祝愿设计院明天更美好！", nick_name: "何恩怀", dept_name: "A", update_time: "2017-07-10" }, { topic: "B", content: "花开花落几度寒暑，六十年的时光弹指一挥；月满月亏潮涨潮落，半个多世纪的历程岁月章回。设计院的今天是无数前辈艰苦奋斗的成果，设计院的明天需要我们每一个人用爱和汗水铸就，让我们每个人从自己的岗位做起，共同谱写我院美好的未来，设计院的明天会更好！", nick_name: "职工甲", dept_name: "B", update_time: "2017-01-01"}]; !function () { mesgObj = preInitMesgAry(), console.log(mesgObj), mesg1Ary = mesgObj.A, mesg2Ary = mesgObj.B } (); var lastIndexD = 0; if (null != mesg1Ary) { var lastIndexP = 0; !function () { null != window._intervalTime4Topic1 && window.clearInterval(window._intervalTime4Topic1), updateTopic1(), null != window._intervalTime4Topic2 && window.clearInterval(window._intervalTime4Topic2), updateTopic2() } () }
+    // var mesgAry = mesg; //  {data:[{topic:'', content:'', dept_name:'', update_time:''}]}
+//    var mesg1Ary = mesg1Ary || [
+//"始于一甲子，守候一甲子，再期盼一甲子，祝设计院明天更美好——小甲",
+//"铁肩担重义，六十载岁月今番为贺；" +
+//"妙手绘华章，三万里蜀道从此不难。  祝愿设计院明天更美好！——何恩怀",
+//"怀着感恩的心情，迎接院60周年庆，明天更美好——陈单",
+//"花开花落几度寒暑，六十年的时光弹指一挥；月满月亏潮涨潮落，半个多世纪的历程岁月章回。设计院的今天是无数前辈艰苦奋斗的成果，设计院的明天需要我们每一个人用爱和汗水铸就，让我们每个人从自己的岗位做起，共同谱写我院美好的未来，设计院的明天会更好！——职工甲",
+//"辛勤耕耘六十载，巴蜀大地路成荫。公路设计新发展，齐心合力再前行！——路一处windy"
+//    ]
+//    var mesg2Ary = mesg1Ary;
+//    var mesgAry = [{topic:'1',
+//                    data:[
+//                        {
+//                            content:'始于一甲子，守候一甲子，再期盼一甲子，祝设计院明天更美好',
+//                            nick_name:'小甲',
+//                            dept_name:'A',
+//                            update_time:'2016-05-20'
+//                        },{
+//                            content:'花开花落几度寒暑，六十年的时光弹指一挥；月满月亏潮涨潮落，半个多世纪的历程岁月章回。设计院的今天是无数前辈艰苦奋斗的成果，设计院的明天需要我们每一个人用爱和汗水铸就，让我们每个人从自己的岗位做起，共同谱写我院美好的未来，设计院的明天会更好！',
+//                            nick_name:'职工甲',
+//                            dept_name:'B',
+//                            update_time:'2017-07-07'
+//                        }]},
+//                {topic:'2',
+//                    data:[{
+//                        content:'铁肩担重义，六十载岁月今番为贺；妙手绘华章，三万里蜀道从此不难。  祝愿设计院明天更美好！',
+//                        nick_name:'何恩怀',
+//                        dept_name:'A',
+//                        update_time:'2017-05-05'
+//                    },{
+//                        content:'怀着感恩的心情，迎接院60周年庆，明天更美好',
+//                        nick_name:'陈单',
+//                        dept_name:'B',
+//                        update_time:'2017-05-08'
+//                    }]
+//                }]; 
+//                function _initMesgAry(idx) {
+//                    var mesgAryI = mesgAry[idx];
+//                    try {
+//                        mesgAryI.mesg = [];
+//                        var dataAry = mesgAryI.data, dataAryI;
+//                        for (var i = 0; i < dataAry.length; i++) {
+//                            dataAryI = dataAry[i];
+//                            mesgAryI.mesg.push('##' + mesgAryI.topic + '##' + dataAryI.content + '————' + dataAryI.nick_name);
+//                        }
+//                    } catch (ex) {
+//                    }
+//                    return mesgAryI.mesg;
+//                }
+    var mesgAry = [
+                    {
+                        topic:'A',
+                        content: '始于一甲子，守候一甲子，再期盼一甲子，祝设计院明天更美好',
+                        nick_name: '小甲',
+                        dept_name:'A',
+                        update_time:'2016-08-01'
+                     },{
+                        topic:'B',
+                        content: '怀着感恩的心情，迎接院60周年庆，明天更美好',
+                        nick_name: '陈单',
+                        dept_name:'',
+                        update_time:''
+                    },{
+                        topic:'A',
+                        content: '铁肩担重义，六十载岁月今番为贺；妙手绘华章，三万里蜀道从此不难。  祝愿设计院明天更美好！',
+                        nick_name: '何恩怀',
+                        dept_name:'A',
+                        update_time:'2017-07-10'
+                    },{
+                        topic:'B',
+                        content: '花开花落几度寒暑，六十年的时光弹指一挥；月满月亏潮涨潮落，半个多世纪的历程岁月章回。设计院的今天是无数前辈艰苦奋斗的成果，设计院的明天需要我们每一个人用爱和汗水铸就，让我们每个人从自己的岗位做起，共同谱写我院美好的未来，设计院的明天会更好！',
+                        nick_name: '职工甲',
+                        dept_name:'B',
+                        update_time:'2017-01-01'
+                    }]
+                    function preInitMesgAry() {
+                        var mesgAryI = {};
+                        if (jQuery != null) {
+                            console.log('0');
+                            $.ajax({
+                                url: 'js/json.json',
+                                method: 'GET',
+                                // dataType: 'json',
+                                // lsync: true,
+                                async: false,
+                                success: function (data, status) {
+
+                                },
+                                complete: function (data, status) {
+                                    mesgAry = eval(data.responseText || mesgAry);
+                                    try {
+                                        var dataAry = mesgAry, dataAryI,
+                                        dataAryIContentLength = 0;
+                                        for (var i = 0; i < dataAry.length; i++) {
+                                            try {
+                                                dataAryI = dataAry[i];
+                                                dataAryIContentLength = dataAryI.content.length;
+                                                if (!mesgAryI[dataAryI.topic]) {
+                                                    mesgAryI[dataAryI.topic] = [];
+                                                } // else{}
+                                                mesgAryI[dataAryI.topic].push('##' + dataAryI.topic + '##' + (dataAryIContentLength <= 50 ? dataAryI.content: dataAryI.content.substring(0, 100)+"...") + '————' + dataAryI.nick_name);
+                                            } catch (ex) {
+                                            }
+                                        } // for
+                                    } catch (ex) {
+                                    } // try
+                                }
+                            });
+ 
+                        }//else{}
+                    return mesgAryI;
+                }
+    
+    (function () {// init ary
+        mesgObj = preInitMesgAry();
+        console.log(mesgObj);
+        mesg1Ary = mesgObj['A'];
+        mesg2Ary = mesgObj['B'];
+    })();
+
+    var lastIndexD = 0;
+    if (mesg1Ary != null) {
+        function wzdFunc(dom, ary) {
+            if (ary != null && ary.length > 0) {
+                // dom = document.getElementById("mesg1Span");
+                var i = parseInt(Math.random() * ary.length);
+                if (dom.innerHTML == "") {
+                    dom.innerHTML = ary[i];
+                } else {
+                    // console.log(dom.innerHTML);
+                }
+                if (i == lastIndexD) {// 避重
+                    if (i == Math.max(i, ary.length - 1)) {
+                        i = 0;
+                    } else {
+                        i++;
+                    }
+                } //else{}
+                lastIndexD = i;
+                var domP = $(dom).parent(),
+                domPcss = domP.css(['opacity', 'top', 'left','width','height']),
+                opa = domP.css('opacity'),
+                top = domP.css('top'),
+                left = domP.css('left'),
+                showLastTime = Math.min(25000, Math.max(3000, $(dom).html().length * 130));
+                // i = parseInt(i * 100) % ary.length;
+                domP.animate({
+                    opacity: 0.1,
+                    top: '1000px',
+                    left: '300px'
+                }, 9000, 'linear', function () {
+                    dom.innerHTML = ary[i]
+                    domP.css(domPcss);
+                }).delay(showLastTime).queue(function () {
+                    updateTopic1();
+                    $(this).dequeue();
+                });
+            }
+        }
+        var lastIndexP = 0;
+        function wzpFunc(dom, ary) {
+            if (ary != null && ary.length > 0) {
+                // dom = document.getElementById("mesg1Span");
+                var i = parseInt(Math.random() * ary.length);
+                if (dom.innerHTML == "") {
+                    dom.innerHTML = ary[i];
+                }
+                if (i == lastIndexP) {// 避重
+                    if (i == Math.max(i, ary.length - 1)) {
+                        i = 0;
+                    } else {
+                        i++;
+                    }
+                } //else{}
+                lastIndexP = i;
+                // i = parseInt(i * 100) % ary.length;
+                var domP = $(dom).parent(),
+                domPcss = domP.css(['opacity', 'top', 'left']),
+                showLastTime = Math.min(25000, Math.max(3000, $(dom).html().length * 130));
+                // console.log(showLastTime);
+                $(dom).parent().animate({
+                    opacity: 1,
+                    top: '-500px',
+                    left: '540px'
+                }, 7000, function () {
+                    // dom.innerHTML = ary[i];
+                }).delay(showLastTime).queue(function () {
+                    $(dom).delay(3000).html(ary[i]).delay(3000).parent().css(domPcss);
+                    updateTopic2()
+                    $(this).dequeue();
+                });
+            }
+        }
+        function updateTopic1() {
+            wzdFunc(document.getElementById("mesg1Span"), mesg1Ary);
+        }
+
+        function updateTopic2() {
+            wzpFunc(document.getElementById("mesg2Span"), mesg2Ary);
+        }
+        (function(){
+            if (window._intervalTime4Topic1 != null) {
+                window.clearInterval(window._intervalTime4Topic1);
+            } // else{}
+            updateTopic1()
+            // window._intervalTime4Topic1 = window.setInterval(updateTopic1, 11000)
+
+            if (window._intervalTime4Topic2 != null) {
+                window.clearInterval(window._intervalTime4Topic2);
+            } // else{}
+            updateTopic2()
+            // window._intervalTime4Topic2 = window.setInterval(updateTopic2, 7000)
+        })()
+
+    } //else{}
+    function marquee1_up() {
+        document.getElementById("marquee1").direction = "up";
+    }
+    function marquee1_down() {
+        document.getElementById("marquee1").direction = "down";
+    }
+    
 </script>
 </body></html>
